@@ -1,6 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const draggables = document.querySelectorAll('.draggable');
     const container = document.getElementById('desktop');
+    const buzzBlock = document.getElementById("intro-window");
+    const buttons = document.querySelectorAll('[id^="showButton"]');
+
+    // Añade la clase de vibración al iniciar
+    buzzBlock.classList.add("buzz");
+
+    // Remueve la clase de vibración después de un tiempo (2 segundos)
+    setTimeout(() => {
+        buzzBlock.classList.remove("buzz");
+    }, 2000); // 2000 milisegundos = 2 segundos
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const index = button.getAttribute('data-index');
+            const draggable = draggables[index];
+            if (draggable) {
+                draggable.style.display = 'block';
+                centerElement(draggable);
+                draggable.style.zIndex = getMaxZIndex() + 1;
+            }
+        });
+    });
+
+    // Centra todos los elementos draggable al iniciar
+    draggables.forEach(centerElement);
 
     draggables.forEach(draggable => {
         draggable.addEventListener('mousedown', (event) => dragMouseDown(event, draggable));
@@ -12,6 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    function centerElement(element) {
+        const containerRect = container.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+
+        const centerX = (containerRect.width - elementRect.width) / 2;
+        const centerY = (containerRect.height - elementRect.height) / 2;
+
+        element.style.left = centerX + 'px';
+        element.style.top = centerY + 'px';
+    }
 
     function dragMouseDown(event, element) {
         event.preventDefault();

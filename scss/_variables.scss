@@ -71,6 +71,7 @@ span{
     border: 1px solid #595a59;
     border-radius: 15px;
     gap: 2px;
+    
     &:hover {
         box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 7px;
     }
@@ -109,17 +110,26 @@ span{
                 padding-bottom: 5px;
                 border: 1.5px solid #4a4b4a;
             }
-            .boton-1{
+            .minimize{
                 border-right: none;
                 border-bottom-left-radius: 20%;
+                &:hover{
+                    background: linear-gradient(0deg, rgb(118, 202, 241) 52%,rgb(118, 202, 241) 57%, rgba(238,246,254,1) 100%);
+                }
             }
-            .boton-2{
+            .maximize{
                 border-right: none;
+                &:hover{
+                    background: linear-gradient(0deg, rgb(118, 202, 241) 52%,rgb(118, 202, 241) 57%, rgba(238,246,254,1) 100%);
+                }
             }
-            .boton-x{
+            .close{
                 border-bottom-right-radius: 20%;
                 background: rgb(241,104,97);
                 background: linear-gradient(0deg, rgba(241,104,97,1) 52%, rgba(246,148,143,1) 57%, rgba(246,191,188,1) 100%);
+                &:hover{
+                    background: linear-gradient(0deg, rgb(243, 51, 41) 52%, rgb(241, 67, 58) 57%, rgb(238, 124, 118) 100%);
+                }
             }
         }
     }
@@ -185,4 +195,16 @@ span{
             }
         }
     }
+}
+
+@keyframes buzz {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.buzz {
+    animation: buzz 0.1s linear infinite;
 }

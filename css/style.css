@@ -101,17 +101,26 @@ span {
   padding-bottom: 5px;
   border: 1.5px solid #4a4b4a;
 }
-.draggable .window-head .window-head-right .boton-1 {
+.draggable .window-head .window-head-right .minimize {
   border-right: none;
   border-bottom-left-radius: 20%;
 }
-.draggable .window-head .window-head-right .boton-2 {
+.draggable .window-head .window-head-right .minimize:hover {
+  background: linear-gradient(0deg, rgb(118, 202, 241) 52%, rgb(118, 202, 241) 57%, rgb(238, 246, 254) 100%);
+}
+.draggable .window-head .window-head-right .maximize {
   border-right: none;
 }
-.draggable .window-head .window-head-right .boton-x {
+.draggable .window-head .window-head-right .maximize:hover {
+  background: linear-gradient(0deg, rgb(118, 202, 241) 52%, rgb(118, 202, 241) 57%, rgb(238, 246, 254) 100%);
+}
+.draggable .window-head .window-head-right .close {
   border-bottom-right-radius: 20%;
   background: rgb(241, 104, 97);
   background: linear-gradient(0deg, rgb(241, 104, 97) 52%, rgb(246, 148, 143) 57%, rgb(246, 191, 188) 100%);
+}
+.draggable .window-head .window-head-right .close:hover {
+  background: linear-gradient(0deg, rgb(243, 51, 41) 52%, rgb(241, 67, 58) 57%, rgb(238, 124, 118) 100%);
 }
 .draggable .window-content {
   margin-bottom: 10px;
@@ -178,8 +187,30 @@ span {
   gap: 15px;
 }
 
+@keyframes buzz {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.buzz {
+  animation: buzz 0.1s linear infinite;
+}
+
 nav {
   position: fixed;
+  z-index: 1000;
   bottom: 0;
   left: 0;
   width: 100vw;
