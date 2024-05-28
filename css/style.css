@@ -39,10 +39,143 @@ button:hover {
 
 span {
   text-decoration: none;
-  color: #ffffff;
   text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
   text-align: center;
   padding-bottom: 5px;
+}
+
+.draggable {
+  cursor: move;
+  user-select: none;
+  position: absolute;
+  transition: box-shadow 0.2s ease;
+  background: rgb(191, 215, 239);
+  background: linear-gradient(0deg, rgb(191, 215, 239) 52%, rgb(204, 234, 249) 57%, rgb(238, 246, 254) 100%);
+  border: 1px solid #595a59;
+  border-radius: 15px;
+  gap: 2px;
+}
+.draggable:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 7px;
+}
+.draggable .window-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 10px;
+  width: 800px;
+  height: 40px;
+  overflow: hidden;
+}
+.draggable .window-head .window-head-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 2px;
+}
+.draggable .window-head .window-head-left .icon-msn {
+  width: 20px;
+}
+.draggable .window-head .window-head-right {
+  list-style: none;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px;
+}
+.draggable .window-head .window-head-right li {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
+  background: rgb(191, 215, 239);
+  background: linear-gradient(0deg, rgb(191, 215, 239) 52%, rgb(204, 234, 249) 57%, rgb(238, 246, 254) 100%);
+  width: 45px;
+  text-align: center;
+  padding-bottom: 5px;
+  border: 1.5px solid #4a4b4a;
+}
+.draggable .window-head .window-head-right .boton-1 {
+  border-right: none;
+  border-bottom-left-radius: 20%;
+}
+.draggable .window-head .window-head-right .boton-2 {
+  border-right: none;
+}
+.draggable .window-head .window-head-right .boton-x {
+  border-bottom-right-radius: 20%;
+  background: rgb(241, 104, 97);
+  background: linear-gradient(0deg, rgb(241, 104, 97) 52%, rgb(246, 148, 143) 57%, rgb(246, 191, 188) 100%);
+}
+.draggable .window-content {
+  margin-bottom: 10px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgb(255, 255, 255) 48%, rgb(190, 231, 248) 74%, rgb(95, 196, 238) 100%);
+  width: 800px;
+  border: 1.5px solid #4a4b4a;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.draggable .window-content #photo .photo-container {
+  position: relative;
+  width: 285px;
+  height: 270px;
+  background: linear-gradient(0deg, rgb(97, 240, 41) 34%, rgb(194, 242, 175) 93%);
+  border-radius: 10%/95%;
+  border: 2px solid #8dac87;
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+}
+.draggable .window-content #photo .photo-container img {
+  width: 88%;
+  position: absolute;
+  border-radius: 3%;
+}
+.draggable .window-content #photo .photo-container #circle {
+  position: absolute;
+  z-index: 100;
+  width: 200%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  top: -45%;
+}
+.draggable .window-content .data {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-right: 50px;
+}
+.draggable .window-content .data span {
+  font-weight: 500;
+}
+.draggable .window-content .data h2 {
+  margin: 0;
+}
+.draggable .window-content .data h1 {
+  margin: 0;
+  font-size: 30px;
+}
+.draggable .window-content .data div {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
 nav {
@@ -106,12 +239,12 @@ nav .navbar ul li a {
   flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
-  column-gap: 25px;
   padding: 20px;
   box-sizing: border-box;
   justify-content: flex-start;
   align-content: baseline;
   height: calc(100vh - 60px);
+  position: absolute;
 }
 #desktop .icons-panel .icon {
   cursor: pointer;
@@ -119,7 +252,7 @@ nav .navbar ul li a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80px;
+  width: 100px;
   height: 100px;
   justify-content: center;
   align-items: center;
@@ -129,139 +262,11 @@ nav .navbar ul li a {
 }
 #desktop .icons-panel .icon span {
   text-wrap: wrap;
-}
-
-.window {
-  background: rgb(191, 215, 239);
-  background: linear-gradient(0deg, rgb(191, 215, 239) 52%, rgb(204, 234, 249) 57%, rgb(238, 246, 254) 100%);
-  border: 2px solid #595a59;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
-  gap: 2px;
-}
-.window .window-head {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0px 10px;
-  width: 800px;
-  height: 40px;
-  overflow: hidden;
-}
-.window .window-head .window-head-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 2px;
-}
-.window .window-head .window-head-left .icon-msn {
-  width: 20px;
-}
-.window .window-head .window-head-right {
-  list-style: none;
-  margin-top: 0px;
-  margin-bottom: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding-left: 0px;
-}
-.window .window-head .window-head-right li {
-  text-decoration: none;
   color: white;
-  font-weight: 400;
-  font-size: 20px;
-  text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
-  background: rgb(191, 215, 239);
-  background: linear-gradient(0deg, rgb(191, 215, 239) 52%, rgb(204, 234, 249) 57%, rgb(238, 246, 254) 100%);
-  width: 45px;
-  text-align: center;
-  padding-bottom: 5px;
-  border: 1.5px solid #4a4b4a;
 }
-.window .window-head .window-head-right .boton-1 {
-  border-right: none;
-  border-bottom-left-radius: 20%;
-}
-.window .window-head .window-head-right .boton-2 {
-  border-right: none;
-}
-.window .window-head .window-head-right .boton-x {
-  border-bottom-right-radius: 20%;
-  background: rgb(241, 104, 97);
-  background: linear-gradient(0deg, rgb(241, 104, 97) 52%, rgb(246, 148, 143) 57%, rgb(246, 191, 188) 100%);
-}
-.window .window-content {
-  margin-bottom: 10px;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(0deg, rgb(255, 255, 255) 48%, rgb(190, 231, 248) 74%, rgb(95, 196, 238) 100%);
-  width: 800px;
-  border: 1.5px solid #4a4b4a;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.window .window-content #photo .photo-container {
-  position: relative;
-  width: 285px;
-  height: 270px;
-  background: linear-gradient(0deg, rgb(97, 240, 41) 34%, rgb(194, 242, 175) 93%);
-  border-radius: 10%/95%;
-  border: 2px solid #8dac87;
-  box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
-  color: white;
-  text-align: center;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 40px;
-}
-.window .window-content #photo .photo-container img {
-  width: 88%;
-  position: absolute;
-  border-radius: 3%;
-}
-.window .window-content #photo .photo-container #circle {
-  position: absolute;
-  z-index: 100;
-  width: 200%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  top: -45%;
-}
-.window .window-content .data {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  margin-right: 50px;
-}
-.window .window-content .data span {
-  font-weight: 500;
-}
-.window .window-content .data h2 {
-  margin: 0;
-}
-.window .window-content .data h1 {
-  margin: 0;
-  font-size: 30px;
-}
-.window .window-content .data div {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-}
-
-#draggable {
-  cursor: move;
-  position: absolute;
+#desktop .icons-panel .icon:hover {
+  background: linear-gradient(0deg, rgba(191, 215, 239, 0.3) 52%, rgba(204, 234, 249, 0.3) 57%, rgba(238, 246, 254, 0.4) 100%);
+  border-radius: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

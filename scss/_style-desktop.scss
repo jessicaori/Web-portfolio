@@ -12,19 +12,19 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: 10px;
-        column-gap: 25px;
         padding: 20px;
         box-sizing: border-box;
         justify-content: flex-start;
         align-content: baseline;
         height: calc(100vh - 60px);
+        position: absolute;
         .icon {
             cursor: pointer;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 80px;
+            width: 100px;
             height:100px;
             justify-content: center;
             align-items: center;
@@ -33,135 +33,12 @@
             }
             span {
                 text-wrap:wrap;
-            }
-        }
-    }
-
-}
-
-.window{
-    background: rgb(191,215,239);
-    background: linear-gradient(0deg, rgba(191,215,239,1) 52%, rgba(204,234,249,1) 57%, rgba(238,246,254,1) 100%);
-    border: 2px solid #595a59;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
-    // @include flex-column;
-    gap: 2px;
-    .window-head{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0px 10px;
-        width: 800px;
-        height: 40px;
-        overflow: hidden;
-        .window-head-left{
-            @include flex-row;
-            gap: 5px;
-            text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 2px;
-            .icon-msn{
-            width: 20px;
-            }
-        }
-        .window-head-right{
-            list-style: none;
-            margin-top: 0px;
-            margin-bottom: 15px;
-            @include flex-row;
-            
-            padding-left: 0px;
-            li{
-                text-decoration: none;
                 color: #ffff;
-                font-weight: 400;
-                font-size: 20px;
-                text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
-                background: rgb(191,215,239);
-                background: linear-gradient(0deg, rgba(191,215,239,1) 52%, rgba(204,234,249,1) 57%, rgba(238,246,254,1) 100%);
-                width: 45px;
-                text-align: center;
-                padding-bottom: 5px;
-                border: 1.5px solid #4a4b4a;
             }
-            .boton-1{
-                border-right: none;
-                border-bottom-left-radius: 20%;
-            }
-            .boton-2{
-                border-right: none;
-            }
-            .boton-x{
-                border-bottom-right-radius: 20%;
-                background: rgb(241,104,97);
-                background: linear-gradient(0deg, rgba(241,104,97,1) 52%, rgba(246,148,143,1) 57%, rgba(246,191,188,1) 100%);
+            &:hover {
+                background: linear-gradient(0deg, rgba(191,215,239,0.3) 52%, rgba(204,234,249,0.3) 57%, rgba(238,246,254,0.4) 100%);
+                border-radius: 10px;
             }
         }
     }
-    .window-content{
-        margin-bottom: 10px;
-        background: rgb(255,255,255);
-        background: linear-gradient(0deg, rgba(255,255,255,1) 48%, rgba(190,231,248,1) 74%, rgba(95,196,238,1) 100%);
-        width: 800px;
-        border: 1.5px solid #4a4b4a;
-        @include flex-row;
-        #photo { 
-            .photo-container{
-                position: relative;
-                width:285px; 
-                height:270px; 
-                background: linear-gradient(0deg, rgba(97,240,41,1) 34%, rgba(194,242,175,1) 93%);
-                border-radius: 10% / 95% ;
-                border: 2px solid #8dac87;
-                box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
-                color:white;
-                text-align:center; 
-                overflow: hidden;
-                @include flex-column;
-                margin: 40px;
-                img{
-                    width: 100% - 12%;
-                    position: absolute;
-                    border-radius: 3%;
-                }
-                #circle{
-                    position: absolute;
-                    z-index: 100;
-                    width: 200%;
-                    height: 100%;
-                    background-color: rgb(255, 255, 255, 0.2);
-                    border-radius: 50%;
-                    top: -45%;
-                }
-            }
-            
-        }
-        .data{
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-            margin-right: 50px;
-            span{
-                font-weight: 500;
-                
-            }
-            h2{
-                margin: 0;
-            }
-            h1{
-                margin: 0;
-                font-size: 30px;
-            }
-            div{
-                margin-top: 20px;
-                display: flex;
-                flex-direction: row;
-                gap: 15px;
-            }
-        }
-    }
-}
-
-#draggable{
-    cursor: move;
-    position: absolute;
 }

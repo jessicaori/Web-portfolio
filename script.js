@@ -1,41 +1,73 @@
-function reproducirAudio() {
-    var audio = document.getElementById('miAudio');
-    audio.play();
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const draggables = document.querySelectorAll('.draggable');
+    const container = document.getElementById('desktop');
 
-function dragElement(el) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    el.onmousedown = dragMouseDown;
+    draggables.forEach(draggable => {
+        draggable.addEventListener('mousedown', (event) => dragMouseDown(event, draggable));
 
-    function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // Obtiene la posición del cursor al inicio del arrastre
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        document.onmousemove = elementDrag;
+        draggable.querySelectorAll('div').forEach(child => {
+            child.addEventListener('mousedown', event => {
+                event.stopPropagation();
+                dragMouseDown(event, draggable);
+            });
+        });
+    });
+
+    function dragMouseDown(event, element) {
+        event.preventDefault();
+        element.style.zIndex = getMaxZIndex() + 1;
+
+        let shiftX = event.clientX - element.getBoundingClientRect().left;
+        let shiftY = event.clientY - element.getBoundingClientRect().top;
+
+        function moveAt(pageX, pageY) {
+            const containerRect = container.getBoundingClientRect();
+            const elementRect = element.getBoundingClientRect();
+
+            let newLeft = pageX - shiftX;
+            let newTop = pageY - shiftY;
+
+            // Limitar dentro del contenedor
+            if (newLeft < containerRect.left) {
+                newLeft = containerRect.left;
+            } else if (newLeft + elementRect.width > containerRect.right) {
+                newLeft = containerRect.right - elementRect.width;
+            }
+
+            if (newTop < containerRect.top) {
+                newTop = containerRect.top;
+            } else if (newTop + elementRect.height > containerRect.bottom) {
+                newTop = containerRect.bottom - elementRect.height;
+            }
+
+            element.style.left = newLeft - containerRect.left + 'px';
+            element.style.top = newTop - containerRect.top + 'px';
+        }
+
+        function onMouseMove(event) {
+            moveAt(event.pageX, event.pageY);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+
+        element.addEventListener('mouseup', function() {
+            document.removeEventListener('mousemove', onMouseMove);
+            element.onmouseup = null;
+        });
+
+        element.addEventListener('dragstart', function() {
+            return false;
+        });
     }
 
-    function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // Calcula la nueva posición del cursor
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        // Establece la nueva posición del elemento
-        el.style.top = (el.offsetTop - pos2) + "px";
-        el.style.left = (el.offsetLeft - pos1) + "px";
+    function getMaxZIndex() {
+        let maxZ = 0;
+        document.querySelectorAll('.draggable').forEach(el => {
+            const zIndex = parseInt(window.getComputedStyle(el).zIndex) || 0;
+            if (zIndex > maxZ) {
+                maxZ = zIndex;
+            }
+        });
+        return maxZ;
     }
-
-    function closeDragElement() {
-        // Detiene el movimiento cuando se suelta el mouse
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
-}
-
-// Llama a la función para hacer el elemento arrastrable
-dragElement(document.getElementById("draggable"));
+});
