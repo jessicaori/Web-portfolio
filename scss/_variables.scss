@@ -1,6 +1,6 @@
 /* COLORS */
 $primary-color: #61f029;
-$secondary-color: #3EB1E8;
+$secondary-color: rgb(62, 177, 232);
 
 @mixin flex-column{
     display: flex;
@@ -36,4 +36,28 @@ h2{
 
 p{
     font-size: 16px;
+}
+
+button{
+    height: 30px;
+    background: linear-gradient(0deg, rgba(211,216,218,1) 42%, rgba(238,238,238,1) 52%);
+    border: 1px solid #595a59;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+    padding: 0px 15px;
+    font-size: 16px;
+    &:hover{
+        border-color: rgb(5, 93, 131);
+        box-shadow: rgba(5, 93, 131, 0.5) 0px 0px 5px;
+        background: linear-gradient(0deg, rgba(191,215,239,1) 42%, rgba(238,246,254,1) 52%);
+        cursor: pointer;
+    }
+}
+
+span{
+    text-decoration: none;
+    color: #ffffff;
+    text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
+    text-align: center;
+    padding-bottom: 5px;
 }
