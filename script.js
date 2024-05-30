@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const buzzBlock = document.getElementById("intro-window");
     const buttons = document.querySelectorAll('[id^="showButton"]');
 
+    // Centra la primera ventana (intro) al iniciar
+    centerElement(draggables[0]);
     // Añade la clase de vibración al iniciar
     buzzBlock.classList.add("buzz");
 
@@ -17,25 +19,58 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = button.getAttribute('data-index');
             const draggable = draggables[index];
             if (draggable) {
-                draggable.style.display = 'block';
-                centerElement(draggable);
+                if (draggable.style.display !== 'block') {
+                    draggable.style.display = 'block';
+                    centerElement(draggable);
+
+                    // Texto animado from About Window
+                    const textContainer = document.getElementById('animated-text');
+                    let text = textContainer.innerHTML;
+                    text = text.replace(/<br\s*[/]?>/gi, ' '); // Reemplaza <br> con espacios en blanco
+                    textContainer.innerHTML = ''; // Limpiar el contenido original del párrafo
+                    let index = 0;
+
+                    function typeWriter() {
+                        if (index < text.length) {
+                            textContainer.innerHTML += text.charAt(index);
+                            index++;
+                            setTimeout(typeWriter, 20); // Ajusta el tiempo de espera entre cada letra
+                        }
+                    }
+
+                    typeWriter();
+                }
                 draggable.style.zIndex = getMaxZIndex() + 1;
             }
         });
     });
 
-    // Centra todos los elementos draggable al iniciar
-    draggables.forEach(centerElement);
-
     draggables.forEach(draggable => {
         draggable.addEventListener('mousedown', (event) => dragMouseDown(event, draggable));
 
-        draggable.querySelectorAll('div').forEach(child => {
-            child.addEventListener('mousedown', event => {
+        // Prevenir que el mousedown en el input active el arrastre del draggable
+        draggable.querySelectorAll('input').forEach(input => {
+            input.addEventListener('mousedown', event => {
                 event.stopPropagation();
-                dragMouseDown(event, draggable);
             });
         });
+
+        const chatInput = document.getElementById('chat-input');
+        if (chatInput) {
+            chatInput.addEventListener('mousedown', event => {
+                event.stopPropagation();
+            });
+        }
+
+        draggable.querySelectorAll('div').forEach(child => {
+            if (child.id !== 'chat-input') {
+                child.addEventListener('mousedown', event => {
+                    event.stopPropagation();
+                    dragMouseDown(event, draggable);
+                });
+            }
+        });
+
     });
 
     function centerElement(element) {
@@ -106,4 +141,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         return maxZ;
     }
+
+    // emojis
+
+    const emojiButton = document.getElementById('emoji-button');
+    const emojiPicker = document.getElementById('emoji-picker');
+    const chatInput = document.getElementById('chat-input');
+
+    // Lista de emojis
+    const emojiFiles = [
+        'emoji1.gif', 'emoji2.gif', 'emoji3.gif', 'emoji4.gif', 'emoji5.gif', 'emoji6.gif',
+        'emoji7.gif', 'emoji8.gif', 'emoji9.gif', 'emoji10.gif', 'emoji11.gif', 'emoji12.gif',
+        'emoji13.gif', 'emoji14.gif', 'emoji15.gif', 'emoji16.gif', 'emoji17.gif', 'emoji18.gif',
+        'emoji19.gif', 'emoji20.gif', 'emoji21.gif', 'emoji22.gif', 'emoji23.gif', 'emoji24.gif',
+        'emoji25.gif', 'emoji26.gif', 'emoji27.gif'
+    ];
+
+    // Función para cargar emojis en el selector
+    function loadEmojis() {
+        emojiFiles.forEach(emoji => {
+            const emojiImg = document.createElement('img');
+            emojiImg.src = `assets/emojis/${emoji}`;
+            emojiImg.alt = emoji;
+            emojiImg.addEventListener('click', () => {
+                insertEmojiIntoInput(emojiImg.src);
+                emojiPicker.style.display = 'none';
+            });
+            emojiPicker.appendChild(emojiImg);
+        });
+    }
+
+    function insertEmojiIntoInput(emojiSrc) {
+        const emojiHtml = `<img src="${emojiSrc}" style="width: 24px; height: 24px;">`;
+        chatInput.innerHTML += emojiHtml;
+        chatInput.focus();
+    }
+
+    // Mostrar/Ocultar el selector de emojis
+    emojiButton.addEventListener('click', () => {
+        if (emojiPicker.style.display === 'none' || emojiPicker.style.display === '') {
+            emojiPicker.style.display = 'block';
+        } else {
+            emojiPicker.style.display = 'none';
+        }
+    });
+
+    // Cargar los emojis cuando se cargue la página
+    loadEmojis();
+
+    
+
 });
