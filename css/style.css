@@ -701,6 +701,7 @@ nav .navbar ul li a {
 }
 
 #cv-window {
+  display: none;
   height: fit-content;
   width: 400px;
 }
@@ -738,6 +739,79 @@ nav .navbar ul li a {
 #cv-window .window-content img {
   width: 70px;
   filter: drop-shadow(0px 0px 2px rgba(26, 25, 25, 0.5));
+}
+
+#projects-window {
+  height: fit-content;
+  width: fit-content;
+  max-height: 92vh;
+}
+#projects-window .window-content {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#projects-window .window-content .content {
+  margin-top: 2px;
+  padding-top: 20px;
+  width: 900px;
+  height: 650px;
+  max-height: 650px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 25px;
+}
+#projects-window .window-content .content a {
+  text-decoration: none;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+#projects-window .window-content .content a img {
+  width: 350px;
+  border: 1px solid rgba(34, 33, 33, 0.8);
+}
+#projects-window .window-content .content a h3 {
+  margin: 7px;
+}
+#projects-window .window-content .content a .tools {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#projects-window .window-content .content a .tools span {
+  min-height: 25px;
+  background: linear-gradient(0deg, rgb(211, 216, 218) 42%, rgb(238, 238, 238) 52%);
+  border-radius: 5px;
+  padding: 0px 15px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-size: 14px;
+  color: rgba(34, 33, 33, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#projects-window .window-content .content a:hover {
+  background: linear-gradient(0deg, rgba(144, 189, 235, 0.3) 52%, rgba(204, 234, 249, 0.3) 57%, rgba(238, 246, 254, 0.4) 100%);
+  border-radius: 10px;
+  transform: scale(1.1);
 }
 
 /*# sourceMappingURL=style.css.map */

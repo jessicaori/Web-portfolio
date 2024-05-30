@@ -1,0 +1,57 @@
+#projects-window{
+    height: fit-content;
+    width: fit-content;
+    max-height: 92vh;
+    .window-content{
+        height: 500px;
+        @include flex-column;
+        .content{
+            margin-top: 2px;
+            padding-top: 20px;
+            width: 900px;
+            height: 650px;
+            max-height: 650px;
+            overflow-x: hidden;
+            @include flex-row;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-bottom: 25px;
+            a{
+                text-decoration: none;
+                margin: 15px;
+                @include flex-column;
+                padding: 10px;
+                transition: transform 0.3s;
+                img{
+                    width: 350px;
+                    border: 1px solid #222121cc;
+                }
+                h3{
+                    margin: 7px;
+                }
+                .tools{
+                    @include flex-row;
+                    gap: 10px;
+                    span{
+                        min-height: 25px;
+                        background: linear-gradient(0deg, rgba(211,216,218,1) 42%, rgba(238,238,238,1) 52%);
+                        border-radius: 5px;
+                        padding: 0px 15px;
+                        justify-content: center;
+                        align-items: center;
+                        border: none;
+                        font-size: 14px;
+                        color: #222121cc;
+                        box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px;
+                        @include flex-column;
+                    }
+                }
+                &:hover{
+                    background: linear-gradient(0deg, rgba(144, 189, 235, 0.3) 52%, rgba(204,234,249,0.3) 57%, rgba(238,246,254,0.4) 100%);
+                    border-radius: 10px;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
