@@ -39,12 +39,25 @@ button {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
   padding: 0px 15px;
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 button:hover {
   border-color: rgb(5, 93, 131);
   box-shadow: rgba(5, 93, 131, 0.5) 0px 0px 5px;
   background: linear-gradient(0deg, rgb(191, 215, 239) 42%, rgb(238, 246, 254) 52%);
   cursor: pointer;
+}
+button img {
+  height: 23px;
+}
+
+.icon-button {
+  padding: 3px;
 }
 
 span {
@@ -338,7 +351,7 @@ nav .navbar ul li a {
   margin-top: 20px;
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 10px;
 }
 
 #about-window {

@@ -55,12 +55,22 @@ button{
     box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
     padding: 0px 15px;
     font-size: 16px;
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
     &:hover{
         border-color: rgb(5, 93, 131);
         box-shadow: rgba(5, 93, 131, 0.5) 0px 0px 5px;
         background: linear-gradient(0deg, rgba(191,215,239,1) 42%, rgba(238,246,254,1) 52%);
         cursor: pointer;
     }
+    img{
+        height: 23px;
+    }
+}
+
+.icon-button{
+    padding: 3px;
 }
 
 span{
