@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     draggable.style.display = 'block';
                     centerElement(draggable);
 
-                    // Texto animado from About Window
+                    // Texto animado
                     const textContainer = document.getElementById('animated-text');
                     let text = textContainer.innerHTML;
                     text = text.replace(/<br\s*[/]?>/gi, ' '); // Reemplaza <br> con espacios en blanco
@@ -62,6 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        const buttonAbout = document.getElementById('showAboutWindow');
+        if (buttonAbout) {
+            buttonAbout.addEventListener('mousedown', event => {
+                event.stopPropagation();
+            });
+        }
+
         draggable.querySelectorAll('div').forEach(child => {
             if (child.id !== 'chat-input') {
                 child.addEventListener('mousedown', event => {
@@ -70,8 +77,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-
     });
+
+    const buttonAbout = document.getElementById('showAboutWindow');
+    const draggableAbout = draggables[1];
+    if (buttonAbout) {
+        buttonAbout.addEventListener('click', () => {
+            if (draggableAbout.style.display !== 'block') {
+                draggableAbout.style.display = 'block';
+                centerElement(draggableAbout);
+                // Texto animado
+                const textContainer = document.getElementById('animated-text');
+                let text = textContainer.innerHTML;
+                text = text.replace(/<br\s*[/]?>/gi, ' '); // Reemplaza <br> con espacios en blanco
+                textContainer.innerHTML = ''; // Limpiar el contenido original del párrafo
+                let index = 0;
+
+                function typeWriter() {
+                    if (index < text.length) {
+                        textContainer.innerHTML += text.charAt(index);
+                        index++;
+                        setTimeout(typeWriter, 20); // Ajusta el tiempo de espera entre cada letra
+                    }
+                }
+
+                typeWriter();
+            }
+            draggableAbout.style.zIndex = getMaxZIndex() + 1;
+        });
+    }
+
 
     function centerElement(element) {
         const containerRect = container.getBoundingClientRect();
