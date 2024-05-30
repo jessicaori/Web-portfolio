@@ -224,6 +224,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar los emojis cuando se cargue la página
     loadEmojis();
 
-    
+    // Descargar CV
+    const downloadBtn = document.getElementById('download-cv');
+        downloadBtn.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.href = './assets/documents/old-cv.png'; // Cambiar a actual cv
+            link.download = 'CV - Jessica Orihuela Rojas';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    // Cerrar ventana de descarga
+    const notdownloadBtn = document.getElementById('dont-download-cv');
+    const draggableCV = draggables[4];
+    notdownloadBtn.addEventListener('click', () => {
+        draggableCV.style.display = 'none';
+    });
 
 });

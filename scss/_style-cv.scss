@@ -1,0 +1,31 @@
+#cv-window{
+    height:fit-content;
+    width: 400px;
+    .window-content{
+        @include flex-row;
+        padding: 10px 25px;
+        height: 110px;
+        .content{
+            @include flex-column;
+            margin: 0px 20px 0px 0px;
+            width: 300px;
+            justify-content: left;
+            align-items: start;
+            p{
+                margin-bottom: 20px;
+                margin-top: 0px
+            }
+            div{
+                @include flex-row;
+                width: 212px;
+                justify-content: center;
+                gap: 20px;
+            }
+        }
+        img{
+            width: 70px;
+            filter: drop-shadow( 0px 0px 2px rgba(26, 25, 25, 0.5));
+        }
+    }
+    
+}
