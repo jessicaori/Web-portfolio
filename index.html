@@ -812,22 +812,22 @@
                 </div>
                 <div class="window-content">
                     <audio id="audioPlayer"></audio>
-                    <div class="controls">
-                        <button id="stopButton"><i class="fas fa-stop"></i></button>
-                        <button id="prevButton"><i class="fas fa-backward-fast"></i></button>
-                        <button id="playButton"><i class="fas fa-play"></i></button>
-                        <button id="pauseButton"><i class="fas fa-pause"></i></button>
-                        <button id="nextButton"><i class="fas fa-forward-fast"></i></button>
-                        <i class="fas fa-volume-up"></i>
-                        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
-                    </div>
-
                     <div id="songInfo">
-                        <img id="songImage" src="" alt="Song Image" style="width: 100px; height: 100px;">
+                        <img id="songImage" src="" alt="Song Image">
                         <div>
                             <p id="songName">Song Name</p>
                             <p id="songDuration">0:00</p>
                         </div>
+                    </div>
+                    <div class="controls">
+                        <i id="stopButton" class="fas fa-stop"></i>
+                        <button id="prevButton"><i class="fas fa-backward-fast"></i></button>
+                        <div id="playButton" class="center-button"><i class="fas fa-play"></i></div>
+                        <div id="pauseButton" class="center-button"><i class="fas fa-pause"></i></div>
+                        <button id="nextButton"><i class="fas fa-forward-fast"></i></button>
+                        <i id="volume-on" class="fas fa-volume-up"></i>
+                        <i id="volume-mute" class="fas fa-volume-mute"></i>
+                        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
                     </div>
                 </div>
             </div>

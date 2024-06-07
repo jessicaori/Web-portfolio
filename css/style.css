@@ -817,21 +817,96 @@ nav .navbar ul li a {
   transform: scale(1.1);
 }
 
-#music-player-window .controls {
+#music-player-window {
+  width: fit-content;
+}
+#music-player-window .window-content {
+  display: flex;
+  gap: 20px;
+  padding: 10px 10px;
+}
+#music-player-window .window-content .controls {
   display: flex;
   align-items: center;
+  gap: 7px;
 }
-#music-player-window .controls button {
+#music-player-window .window-content .controls button {
   border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  padding: 0;
 }
-#music-player-window .controls i {
+#music-player-window .window-content .controls i {
+  cursor: pointer;
   background: linear-gradient(180deg, rgb(13, 82, 182) 52%, rgb(7, 33, 106) 65%, rgb(7, 33, 106) 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 16px;
+}
+#music-player-window .window-content .controls .center-button {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  margin: 0px;
+  background-color: #020F8F;
+  border: 1px solid #595a59;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#music-player-window .window-content .controls .center-button i {
+  background: linear-gradient(180deg, rgb(255, 255, 255) 52%, rgb(189, 189, 189) 65%, rgb(171, 171, 172) 100%);
   -webkit-background-clip: text;
   color: transparent;
   font-size: 20px;
 }
-#music-player-window .controls #pauseButton {
+#music-player-window .window-content .controls .center-button:hover {
+  border-color: rgb(5, 93, 131);
+  box-shadow: rgba(5, 93, 131, 0.5) 0px 0px 5px;
+  background: linear-gradient(0deg, rgb(6, 51, 197) 42%, rgb(12, 70, 196) 52%);
+  cursor: pointer;
+}
+#music-player-window .window-content .controls #pauseButton {
   display: none;
+}
+#music-player-window .window-content .controls #playButton i {
+  margin-left: 3px;
+}
+#music-player-window .window-content .controls #prevButton {
+  margin-left: 3px;
+}
+#music-player-window .window-content .controls #nextButton {
+  margin-right: 3px;
+}
+#music-player-window .window-content .controls #volume-mute {
+  display: none;
+}
+#music-player-window .window-content .controls input {
+  width: 80px;
+}
+#music-player-window .window-content #songInfo {
+  display: flex;
+  width: 200px;
+  height: 60px;
+  gap: 12px;
+}
+#music-player-window .window-content #songInfo #songImage {
+  width: 60px;
+  height: 60px;
+}
+#music-player-window .window-content #songInfo div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

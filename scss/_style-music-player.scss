@@ -1,20 +1,92 @@
 #music-player-window{
     // display: none;
-    .controls{
+    width: fit-content;
+    .window-content{
         display: flex;
-        align-items: center;
-        button{
-            border-radius: 50%;
-            
+        gap: 20px;
+        padding: 10px 10px;
+        .controls{
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            button{
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+                margin: 0;
+                padding: 0;
+            }
+            i{
+                cursor: pointer;
+                background: linear-gradient(180deg, rgb(13, 82, 182) 52%,rgb(7, 33, 106) 65%, rgb(7, 33, 106) 100%);
+                -webkit-background-clip: text;
+                color: transparent;  
+                font-size: 16px;
+            }
+            .center-button{
+                height: 50px;
+                width: 50px;
+                padding: 0;
+                margin: 0px;
+                background-color: #020F8F;
+                border: 1px solid #595a59;
+                border-radius: 5px;
+                box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px;
+                border-radius: 50%;
+                @include flex-column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                i{
+                    background: linear-gradient(180deg, rgb(255, 255, 255) 52%,rgb(189, 189, 189) 65%, rgb(171, 171, 172) 100%);
+                    -webkit-background-clip: text;
+                    color: transparent; 
+                    font-size: 20px;
+                }
+                &:hover{
+                    border-color: rgb(5, 93, 131);
+                    box-shadow: rgba(5, 93, 131, 0.5) 0px 0px 5px;
+                    background: linear-gradient(0deg, rgb(6, 51, 197) 42%, rgb(12, 70, 196) 52%);
+                    cursor: pointer;
+                }
+            }
+            #pauseButton{
+                display: none;
+            }
+            #playButton{
+                i{
+                    margin-left: 3px;
+                }
+            }
+            #prevButton{
+                margin-left: 3px;
+            }
+            #nextButton{
+                margin-right: 3px;
+            }
+            #volume-mute{
+                display: none;
+            }
+            input{
+                width: 80px;
+            }
         }
-        i{
-            background: linear-gradient(180deg, rgb(13, 82, 182) 52%,rgb(7, 33, 106) 65%, rgb(7, 33, 106) 100%);
-            -webkit-background-clip: text;
-            color: transparent;  
-            font-size: 20px;
-        }
-        #pauseButton{
-            display: none;
+        #songInfo{
+            display: flex;
+            width: 200px;
+            height: 60px;
+            gap: 12px;
+            #songImage{
+                width: 60px;
+                height: 60px;
+            }
+            div{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                align-items: center;
+            }
         }
     }
+    
 }

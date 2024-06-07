@@ -252,6 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var songImage = document.getElementById("songImage");
     var songName = document.getElementById("songName");
     var songDuration = document.getElementById("songDuration");
+    var volumeOn = document.getElementById("volume-on");
+    var volumeMute = document.getElementById("volume-mute");
 
     var playlist = [
         {
@@ -321,6 +323,9 @@ document.addEventListener('DOMContentLoaded', () => {
     audioPlayer.addEventListener("timeupdate", updateDuration);
 
     volumeControl.addEventListener("input", function() {
+        audioPlayer.muted = false;
+        volumeOn.style.display = 'block';
+        volumeMute.style.display = 'none';
         audioPlayer.volume = volumeControl.value;
     });
 
@@ -333,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadTrack(currentTrack);
         playTrack();
         playButton.style.display = 'none';
-        pauseButton.style.display = 'block';
+        pauseButton.style.display = 'flex';
     });
 
     nextButton.addEventListener("click", function() {
@@ -344,14 +349,14 @@ document.addEventListener('DOMContentLoaded', () => {
         loadTrack(currentTrack);
         playTrack();
         playButton.style.display = 'none';
-        pauseButton.style.display = 'block';
+        pauseButton.style.display = 'flex';
     });
 
     stopButton.addEventListener("click", function() {
         audioPlayer.pause();
         audioPlayer.currentTime = 0;
         pauseButton.style.display = 'none';
-        playButton.style.display = 'block';
+        playButton.style.display = 'flex';
     });
 
     playButton.addEventListener("click", function() {
@@ -371,4 +376,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cargar la primera pista al cargar la página
     loadTrack(currentTrack);
+
+    volumeOn.addEventListener("click", function() {
+        volumeOn.style.display = 'none';
+        volumeMute.style.display = 'block';
+        audioPlayer.muted = true;
+        volumeControl.value = "0";
+    });
+
+    volumeMute.addEventListener("click", function () {
+        volumeOn.style.display = 'block';
+        volumeMute.style.display = 'none';
+        audioPlayer.muted = false;
+    })
 });
