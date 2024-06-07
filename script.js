@@ -26,23 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     }else{
                         centerElement(draggable);
                     }
-    
-                    // Texto animado
-                    const textContainer = document.getElementById('animated-text');
-                    let text = textContainer.innerHTML;
-                    text = text.replace(/<br\s*[/]?>/gi, ' '); // Reemplaza <br> con espacios en blanco
-                    textContainer.innerHTML = ''; // Limpiar el contenido original del párrafo
-                    let textIndex = 0;
-    
-                    function typeWriter() {
-                        if (textIndex < text.length) {
-                            textContainer.innerHTML += text.charAt(textIndex);
-                            textIndex++;
-                            setTimeout(typeWriter, 20); // Ajusta el tiempo de espera entre cada letra
+                    
+                    if(indexWindow == 1){
+                        // Texto animado
+                        const textContainer = document.getElementById('animated-text');
+                        let text = textContainer.innerHTML;
+                        text = text.replace(/<br\s*[/]?>/gi, ' '); // Reemplaza <br> con espacios en blanco
+                        textContainer.innerHTML = ''; // Limpiar el contenido original del párrafo
+                        let textIndex = 0;
+        
+                        function typeWriter() {
+                            if (textIndex < text.length) {
+                                textContainer.innerHTML += text.charAt(textIndex);
+                                textIndex++;
+                                setTimeout(typeWriter, 20); // Ajusta el tiempo de espera entre cada letra
+                            }
                         }
+        
+                        typeWriter();
                     }
-    
-                    typeWriter();
                 }
                 draggable.style.zIndex = getMaxZIndex() + 1;
             }

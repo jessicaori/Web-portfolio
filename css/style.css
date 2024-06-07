@@ -319,6 +319,7 @@ nav .navbar ul li a {
 
 #intro-window {
   width: 50%;
+  display: block;
 }
 #intro-window .window-content #photo .photo-container {
   position: relative;
