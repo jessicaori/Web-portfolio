@@ -493,6 +493,20 @@ nav .navbar ul li a {
 #about-window .window-content .two-columns .chat-box #chat-buttons #emoji-button img {
   height: 23px;
 }
+#about-window .window-content .two-columns .chat-box #chat-buttons #buzz-button {
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+#about-window .window-content .two-columns .chat-box #chat-buttons #buzz-button img {
+  height: 23px;
+}
 #about-window .window-content .two-columns .chat-box #chat-buttons #text-button {
   border: none;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px;

@@ -6,13 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Centra la primera ventana (intro) al iniciar
     centerElement(draggables[0]);
-    // Añade la clase de vibración al iniciar
-    buzzBlock.classList.add("buzz");
-
-    // Remueve la clase de vibración después de un tiempo (2 segundos)
-    setTimeout(() => {
-        buzzBlock.classList.remove("buzz");
-    }, 2000);
+    buzz("intro-window");
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
@@ -199,6 +193,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         return maxZ;
     }
+
+    function buzz(element){
+        const buzzBlock = document.getElementById(element);
+        buzzBlock.classList.add("buzz");
+        setTimeout(() => {
+            buzzBlock.classList.remove("buzz");
+        }, 2000);
+    }
+
+    const buzzButton = document.getElementById('buzz-button');
+    buzzButton.addEventListener("click", function () {
+        buzz("about-window");
+    });
 
     // emojis
 
