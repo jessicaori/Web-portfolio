@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     }else{
                         centerElement(draggable);
                     }
+                    // Animación abrir ventana
+                    draggable.classList.add("opened");
+                    setTimeout(() => {
+                        draggable.classList.remove("opened");
+                    }, 200);
                     
                     if(indexWindow == 1){
                         // Texto animado
@@ -116,7 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const draggable = draggables[indexWindow];
             if (draggable) {
                 if (draggable.style.display == 'block') {
-                    draggable.style.display = 'none';
+                    draggable.classList.add("closed");
+                    setTimeout(() => {
+                        draggable.classList.remove("closed");
+                        draggable.style.display = 'none';
+                    }, 200);
                 }
             }
         });
