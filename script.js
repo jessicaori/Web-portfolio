@@ -12,38 +12,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // Remueve la clase de vibración después de un tiempo (2 segundos)
     setTimeout(() => {
         buzzBlock.classList.remove("buzz");
-    }, 2000); // 2000 milisegundos = 2 segundos
+    }, 2000);
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            const index = button.getAttribute('data-index');
-            const draggable = draggables[index];
+            const indexWindow = button.getAttribute('data-index');
+            const draggable = draggables[indexWindow];
             if (draggable) {
                 if (draggable.style.display !== 'block') {
                     draggable.style.display = 'block';
-                    centerElement(draggable);
-
+                    if(indexWindow == 7){
+                        draggable.style.bottom = '60px';
+                    }else{
+                        centerElement(draggable);
+                    }
+    
                     // Texto animado
                     const textContainer = document.getElementById('animated-text');
                     let text = textContainer.innerHTML;
                     text = text.replace(/<br\s*[/]?>/gi, ' '); // Reemplaza <br> con espacios en blanco
                     textContainer.innerHTML = ''; // Limpiar el contenido original del párrafo
-                    let index = 0;
-
+                    let textIndex = 0;
+    
                     function typeWriter() {
-                        if (index < text.length) {
-                            textContainer.innerHTML += text.charAt(index);
-                            index++;
+                        if (textIndex < text.length) {
+                            textContainer.innerHTML += text.charAt(textIndex);
+                            textIndex++;
                             setTimeout(typeWriter, 20); // Ajusta el tiempo de espera entre cada letra
                         }
                     }
-
+    
                     typeWriter();
                 }
                 draggable.style.zIndex = getMaxZIndex() + 1;
             }
         });
     });
+    
 
     draggables.forEach(draggable => {
         draggable.addEventListener('mousedown', (event) => dragMouseDown(event, draggable));
@@ -91,12 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 let text = textContainer.innerHTML;
                 text = text.replace(/<br\s*[/]?>/gi, ' '); // Reemplaza <br> con espacios en blanco
                 textContainer.innerHTML = ''; // Limpiar el contenido original del párrafo
-                let index = 0;
+                let index2 = 0;
 
                 function typeWriter() {
-                    if (index < text.length) {
-                        textContainer.innerHTML += text.charAt(index);
-                        index++;
+                    if (index2 < text.length) {
+                        textContainer.innerHTML += text.charAt(index2);
+                        index2++;
                         setTimeout(typeWriter, 20); // Ajusta el tiempo de espera entre cada letra
                     }
                 }
@@ -111,10 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function centerElement(element) {
         const containerRect = container.getBoundingClientRect();
         const elementRect = element.getBoundingClientRect();
-
+    
         const centerX = (containerRect.width - elementRect.width) / 2;
         const centerY = (containerRect.height - elementRect.height) / 2;
-
+    
         element.style.left = centerX + 'px';
         element.style.top = centerY + 'px';
     }
@@ -290,11 +295,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var currentTrack = 0;
 
-    function loadTrack(index) {
-        if (index >= 0 && index < playlist.length) {
-            audioPlayer.src = playlist[index].src;
-            songName.textContent = playlist[index].name;
-            songImage.src = playlist[index].image;
+    function loadTrack(index1) {
+        if (index1 >= 0 && index1 < playlist.length) {
+            audioPlayer.src = playlist[index1].src;
+            songName.textContent = playlist[index1].name;
+            songImage.src = playlist[index1].image;
             audioPlayer.play();
         }
     }

@@ -1,10 +1,15 @@
 #music-player-window{
-    // display: none;
+    display: none;
+    bottom: 60px;
+    right: 2px;
+    height: fit-content;
     width: fit-content;
     .window-content{
         display: flex;
         gap: 20px;
-        padding: 10px 10px;
+    
+        background: transparent;
+        border: none;
         .controls{
             display: flex;
             align-items: center;
