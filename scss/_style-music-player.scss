@@ -1,0 +1,20 @@
+#music-player-window{
+    // display: none;
+    .controls{
+        display: flex;
+        align-items: center;
+        button{
+            border-radius: 50%;
+            
+        }
+        i{
+            background: linear-gradient(180deg, rgb(13, 82, 182) 52%,rgb(7, 33, 106) 65%, rgb(7, 33, 106) 100%);
+            -webkit-background-clip: text;
+            color: transparent;  
+            font-size: 20px;
+        }
+        #pauseButton{
+            display: none;
+        }
+    }
+}

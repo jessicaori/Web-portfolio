@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./script.js"></script>
     <link rel="icon" href="./assets/img/msn-logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/kMVq+f5kK+2U5RQ0HHN+3/zqtpAICGoEuu1CjZXodfXJo6R7eHed9m0mJ8MybL1aX+eZ4EMz5M40A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Jessicaori</title>
 </head>
 <body>
@@ -791,6 +793,40 @@
                                     <span>Capacitación</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- VENTANA MUSIC PLAYER -->
+            <div id="music-player-window" class="draggable">
+                <div class="window-head">
+                    <div class="window-head-left">
+                        <img class="icon-msn" src="./assets/img/msn-logo.png" alt="">
+                        <span>Music Player</span>
+                    </div>
+                    <ul class="window-head-right">
+                        <li class="minimize">_</li>
+                        <li class="maximize">□</li>
+                        <li class="close">x</li>
+                    </ul>
+                </div>
+                <div class="window-content">
+                    <audio id="audioPlayer"></audio>
+                    <div class="controls">
+                        <button id="stopButton"><i class="fas fa-stop"></i></button>
+                        <button id="prevButton"><i class="fas fa-backward-fast"></i></button>
+                        <button id="playButton"><i class="fas fa-play"></i></button>
+                        <button id="pauseButton"><i class="fas fa-pause"></i></button>
+                        <button id="nextButton"><i class="fas fa-forward-fast"></i></button>
+                        <i class="fas fa-volume-up"></i>
+                        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
+                    </div>
+
+                    <div id="songInfo">
+                        <img id="songImage" src="" alt="Song Image" style="width: 100px; height: 100px;">
+                        <div>
+                            <p id="songName">Song Name</p>
+                            <p id="songDuration">0:00</p>
                         </div>
                     </div>
                 </div>

@@ -241,4 +241,134 @@ document.addEventListener('DOMContentLoaded', () => {
         draggableCV.style.display = 'none';
     });
 
+    // Music Player
+    var audioPlayer = document.getElementById("audioPlayer");
+    var volumeControl = document.getElementById("volumeControl");
+    var prevButton = document.getElementById("prevButton");
+    var nextButton = document.getElementById("nextButton");
+    var stopButton = document.getElementById("stopButton");
+    var playButton = document.getElementById("playButton");
+    var pauseButton = document.getElementById("pauseButton");
+    var songImage = document.getElementById("songImage");
+    var songName = document.getElementById("songName");
+    var songDuration = document.getElementById("songDuration");
+
+    var playlist = [
+        {
+            src: './assets/audio/3 Stars.mp3',
+            name: '3 Stars',
+            image: './assets/img/music-player/3 Stars.png'
+        },
+        {
+            src: './assets/audio/aquatic ambience.mp3',
+            name: 'Aquatic Ambience',
+            image: './assets/img/music-player/aquatic ambience.png'
+        },
+        {
+            src: './assets/audio/LEASE.mp3',
+            name: 'LEASE',
+            image: './assets/img/music-player/default.png'
+        },
+        {
+            src: './assets/audio/Lucid Memories.mp3',
+            name: 'Lucid Memories',
+            image: './assets/img/music-player/Lucid Memories.png'
+        },
+        {
+            src: './assets/audio/Wii Party (Main Menu).mp3',
+            name: 'Wii Party (Main Menu)',
+            image: './assets/img/music-player/Wii Party (Main Menu).png'
+        },
+        {
+            src: './assets/audio/ファックラブ.mp3',
+            name: 'ファックラブ',
+            image: './assets/img/music-player/default.png'
+        }
+    ];
+
+    var currentTrack = 0;
+
+    function loadTrack(index) {
+        if (index >= 0 && index < playlist.length) {
+            audioPlayer.src = playlist[index].src;
+            songName.textContent = playlist[index].name;
+            songImage.src = playlist[index].image;
+            audioPlayer.play();
+        }
+    }
+
+    function playTrack() {
+        audioPlayer.play();
+    }
+
+    function updateDuration() {
+        var currentMinutes = Math.floor(audioPlayer.currentTime / 60);
+        var currentSeconds = Math.floor(audioPlayer.currentTime % 60);
+
+        if (currentSeconds < 10) currentSeconds = "0" + currentSeconds;
+        songDuration.textContent = `${currentMinutes}:${currentSeconds}`;
+    }
+
+    audioPlayer.addEventListener("ended", function() {
+        currentTrack++;
+        if (currentTrack >= playlist.length) {
+            currentTrack = 0; // Reiniciar al comienzo de la lista
+        }
+        loadTrack(currentTrack);
+        playTrack();
+    });
+
+    audioPlayer.addEventListener("timeupdate", updateDuration);
+
+    volumeControl.addEventListener("input", function() {
+        audioPlayer.volume = volumeControl.value;
+    });
+
+    prevButton.addEventListener("click", function() {
+        if (currentTrack > 0) {
+            currentTrack--;
+        } else {
+            currentTrack = playlist.length - 1;
+        }
+        loadTrack(currentTrack);
+        playTrack();
+        playButton.style.display = 'none';
+        pauseButton.style.display = 'block';
+    });
+
+    nextButton.addEventListener("click", function() {
+        currentTrack++;
+        if (currentTrack >= playlist.length) {
+            currentTrack = 0; // Reiniciar al comienzo de la lista
+        }
+        loadTrack(currentTrack);
+        playTrack();
+        playButton.style.display = 'none';
+        pauseButton.style.display = 'block';
+    });
+
+    stopButton.addEventListener("click", function() {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+        pauseButton.style.display = 'none';
+        playButton.style.display = 'block';
+    });
+
+    playButton.addEventListener("click", function() {
+        if (audioPlayer.src === '') {
+            loadTrack(currentTrack);
+        }
+        playTrack();
+        playButton.style.display = 'none';
+        pauseButton.style.display = 'flex';
+    });
+
+    pauseButton.addEventListener("click", function() {
+        audioPlayer.pause();
+        pauseButton.style.display = 'none';
+        playButton.style.display = 'flex';
+    });
+
+    // Cargar la primera pista al cargar la página
+    loadTrack(currentTrack);
 });

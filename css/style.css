@@ -817,4 +817,21 @@ nav .navbar ul li a {
   transform: scale(1.1);
 }
 
+#music-player-window .controls {
+  display: flex;
+  align-items: center;
+}
+#music-player-window .controls button {
+  border-radius: 50%;
+}
+#music-player-window .controls i {
+  background: linear-gradient(180deg, rgb(13, 82, 182) 52%, rgb(7, 33, 106) 65%, rgb(7, 33, 106) 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 20px;
+}
+#music-player-window .controls #pauseButton {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
