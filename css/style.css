@@ -157,6 +157,7 @@ span {
 .draggable .window-head .window-head-right .close {
   border-bottom-right-radius: 20%;
   background: rgb(241, 104, 97);
+  cursor: pointer;
   background: linear-gradient(0deg, rgb(241, 104, 97) 52%, rgb(246, 148, 143) 57%, rgb(246, 191, 188) 100%);
 }
 .draggable .window-head .window-head-right .close:hover {

@@ -112,6 +112,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Para cerrar cada ventana
+    const closebuttons = document.querySelectorAll('[id^="closebutton"]');
+    closebuttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const indexWindow = button.getAttribute('data-index');
+            const draggable = draggables[indexWindow];
+            if (draggable) {
+                if (draggable.style.display == 'block') {
+                    draggable.style.display = 'none';
+                }
+            }
+        });
+        button.addEventListener('mousedown', event => {
+            event.stopPropagation();
+        });
+    });
 
     function centerElement(element) {
         const containerRect = container.getBoundingClientRect();

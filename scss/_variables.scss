@@ -161,6 +161,7 @@ span{
             .close{
                 border-bottom-right-radius: 20%;
                 background: rgb(241,104,97);
+                cursor: pointer;
                 background: linear-gradient(0deg, rgba(241,104,97,1) 52%, rgba(246,148,143,1) 57%, rgba(246,191,188,1) 100%);
                 &:hover{
                     background: linear-gradient(0deg, rgb(243, 51, 41) 52%, rgb(241, 67, 58) 57%, rgb(238, 124, 118) 100%);
