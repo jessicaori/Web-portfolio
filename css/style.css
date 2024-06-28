@@ -257,7 +257,7 @@ span {
   animation: opened 0.3s ease;
 }
 
-nav {
+footer {
   position: fixed;
   z-index: 1000;
   bottom: 0;
@@ -265,46 +265,37 @@ nav {
   width: 100vw;
   background: linear-gradient(0deg, rgba(123, 181, 238, 0.7) 42%, rgba(123, 181, 238, 0.7) 89%, rgba(190, 219, 248, 0.7) 97%);
 }
-nav .navbar {
+footer .taskbar {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 40px;
+  padding: 0px 10px;
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
 }
-nav .navbar span {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 18px;
-  gap: 5px;
-  text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 5px;
+footer .taskbar .windows {
+  height: 55px;
 }
-nav .navbar span .little-circle {
-  background-color: #61f029;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 5px;
-}
-nav .navbar ul {
+footer .taskbar div {
   list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-}
-nav .navbar ul li a {
+  gap: 15px;
   text-decoration: none;
   color: white;
   font-size: 18px;
   text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 5px;
+}
+footer .taskbar div .container_date {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  text-align: center;
+  width: 110px;
 }
 
 /* DESKTOP */
@@ -999,6 +990,7 @@ nav .navbar ul li a {
   cursor: pointer;
   background: linear-gradient(180deg, rgb(13, 82, 182) 52%, rgb(7, 33, 106) 65%, rgb(7, 33, 106) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   font-size: 16px;
 }
@@ -1023,6 +1015,7 @@ nav .navbar ul li a {
 #music-player-window .window-content .controls .center-button i {
   background: linear-gradient(180deg, rgb(255, 255, 255) 52%, rgb(189, 189, 189) 65%, rgb(171, 171, 172) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   font-size: 20px;
 }
