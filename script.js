@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById('download-cv');
         downloadBtn.addEventListener('click', () => {
             const link = document.createElement('a');
-            link.href = './assets/documents/old-cv.png'; // Cambiar a actual cv
+            link.href = './assets/documents/CV-JessicaOrihuelaRojas.pdf';
             link.download = 'CV - Jessica Orihuela Rojas';
             document.body.appendChild(link);
             link.click();
