@@ -964,4 +964,60 @@ nav .navbar ul li a {
   align-items: center;
 }
 
+#sticky-note {
+  display: none;
+  height: 170px;
+  width: 170px;
+  background-color: rgb(243, 243, 183);
+  position: absolute;
+  border: none;
+  border-radius: 0%;
+}
+#sticky-note #sticky-note-head {
+  display: flex;
+  justify-content: end;
+  padding: 2px;
+  background-color: rgb(231, 231, 171);
+}
+#sticky-note #sticky-note-head button {
+  height: 5px;
+  width: 30px;
+  font-size: 20px;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+#sticky-note #sticky-note-head button:hover {
+  background: linear-gradient(0deg, rgb(226, 226, 178) 42%, rgb(248, 244, 204) 52%);
+  box-shadow: rgba(145, 145, 145, 0.5) 0px 0px 5px;
+}
+#sticky-note #sticky-note-body {
+  padding: 5px;
+  cursor: text;
+  width: 158px;
+  height: 125px;
+  flex: 1;
+  font-size: 16px;
+  color: #3a3a3a;
+  text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
+  background: linear-gradient(0deg, rgb(226, 226, 178) 65%, rgb(248, 244, 204));
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#sticky-note ::-webkit-scrollbar {
+  width: 9px;
+}
+#sticky-note ::-webkit-scrollbar-track:hover {
+  background: #fcfae8;
+}
+#sticky-note ::-webkit-scrollbar-thumb {
+  background: #919191;
+  border-radius: 6px;
+}
+#sticky-note ::-webkit-scrollbar-thumb:hover {
+  background: #696969;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -61,6 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        const stickynotebody = document.getElementById('sticky-note-body');
+        if (stickynotebody) {
+            stickynotebody.addEventListener('mousedown', event => {
+                event.stopPropagation();
+            });
+        }
+
         const chatInput = document.getElementById('chat-input');
         if (chatInput) {
             chatInput.addEventListener('mousedown', event => {
@@ -76,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         draggable.querySelectorAll('div').forEach(child => {
-            if (child.id !== 'chat-input') {
+            if (child.id !== 'chat-input' && child.id !== 'sticky-note-body') {
                 child.addEventListener('mousedown', event => {
                     event.stopPropagation();
                     dragMouseDown(event, draggable);
@@ -427,5 +434,26 @@ document.addEventListener('DOMContentLoaded', () => {
         volumeOn.style.display = 'block';
         volumeMute.style.display = 'none';
         audioPlayer.muted = false;
-    })
+    });
+
+    // Sticky notes
+    
+    document.querySelector("#container").addEventListener("click", function(event) {
+        if (event.target && event.target.classList.contains("add-note")) {
+            addStickyNote();
+        } else if (event.target && event.target.classList.contains("remove-note")) {
+            removeStickyNote(event.target);
+        }
+    });
+
+    function addStickyNote() {
+        const container = document.getElementById("container");
+        const newStickyNote = document.querySelector(".sticky-note").cloneNode(true);
+        container.appendChild(newStickyNote);
+    }
+
+    function removeStickyNote(button) {
+        const stickyNote = button.closest(".sticky-note");
+        stickyNote.remove();
+    }
 });
