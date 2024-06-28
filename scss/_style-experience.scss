@@ -4,6 +4,7 @@
     max-height: 92vh;
     .window-content{
         @include flex-column;
+        overflow-y: hidden;
         .content{
             margin-top: 2px;
             width: 100%;
