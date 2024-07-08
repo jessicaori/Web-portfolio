@@ -239,6 +239,19 @@ span{
 @media screen and (max-width: 768px){
     html{
         overflow: auto;
-        
+
+    }
+    .draggable{
+        height: auto;
+        .window-content{
+            .navbar{
+                ul{
+                    gap: 15px;
+                    li{
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
     }
 }

@@ -48,6 +48,8 @@
 
 @media screen and (max-width: 768px){
     #desktop{
+        height: auto;
+        background-attachment: fixed;
         .icons-panel{
             display: none;
         }
