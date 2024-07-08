@@ -308,9 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var playlist = [
         {
-            src: './assets/audio/3 Stars.mp3',
-            name: '3 Stars',
-            image: './assets/img/music-player/3 Stars.png'
+            src: './assets/audio/LEASE.mp3',
+            name: 'LEASE',
+            image: './assets/img/music-player/default.png'
         },
         {
             src: './assets/audio/aquatic ambience.mp3',
@@ -318,9 +318,9 @@ document.addEventListener('DOMContentLoaded', () => {
             image: './assets/img/music-player/aquatic ambience.png'
         },
         {
-            src: './assets/audio/LEASE.mp3',
-            name: 'LEASE',
-            image: './assets/img/music-player/default.png'
+            src: './assets/audio/3 Stars.mp3',
+            name: '3 Stars',
+            image: './assets/img/music-player/3 Stars.png'
         },
         {
             src: './assets/audio/Lucid Memories.mp3',
