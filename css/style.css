@@ -312,10 +312,20 @@ span {
 
 @media screen and (max-width: 768px) {
   .taskbar {
-    margin-top: 5px;
+    height: 50px;
     position: relative;
-    padding: 0px 10px;
-    width: 100vw;
+    width: 94vw;
+    margin: 0;
+  }
+  .taskbar i {
+    font-size: 15px;
+  }
+  .taskbar div {
+    gap: 10px;
+    font-size: 15px;
+  }
+  .taskbar div .container_date {
+    display: none;
   }
 }
 /* DESKTOP */
