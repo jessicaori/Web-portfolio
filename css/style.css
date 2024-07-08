@@ -764,6 +764,40 @@ footer .taskbar div .container_date {
   align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+  #experience-window {
+    display: block;
+    position: relative;
+    width: 96%;
+    margin: auto;
+    max-height: 1000vh;
+  }
+  #experience-window .window-content .content {
+    width: 100%;
+  }
+  #experience-window .window-content .content .two-columns {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    gap: 10px;
+    width: 90%;
+  }
+  #experience-window .window-content .content .two-columns .photo {
+    justify-content: center;
+  }
+  #experience-window .window-content .content .two-columns .column-data {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  #experience-window .window-content .content .two-columns .column-data ul {
+    text-align: left;
+    padding-left: 20px;
+  }
+}
 #tecnologies-window {
   display: none;
   width: 900px;
