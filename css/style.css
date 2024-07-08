@@ -331,7 +331,7 @@ span {
 /* DESKTOP */
 #desktop {
   height: 100vh;
-  background-image: url(../assets/img/windows-background.jpeg);
+  background-image: url(../assets/img/windows-background-min.jpeg);
   background-size: cover;
   position: relative;
   background-position: center;
