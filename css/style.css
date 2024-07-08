@@ -257,6 +257,11 @@ span {
   animation: opened 0.3s ease;
 }
 
+@media screen and (max-width: 768px) {
+  html {
+    overflow: auto;
+  }
+}
 footer {
   position: fixed;
   z-index: 1000;
@@ -304,6 +309,7 @@ footer .taskbar div .container_date {
   background-image: url(../assets/img/windows-background.jpeg);
   background-size: cover;
   position: relative;
+  background-position: center;
 }
 #desktop .icons-panel {
   display: flex;
@@ -342,6 +348,11 @@ footer .taskbar div .container_date {
   transform: scale(1.1);
 }
 
+@media screen and (max-width: 768px) {
+  #desktop .icons-panel {
+    display: none;
+  }
+}
 #intro-window {
   width: 50%;
   display: block;
@@ -400,6 +411,27 @@ footer .taskbar div .container_date {
   gap: 10px;
 }
 
+@media screen and (max-width: 768px) {
+  #intro-window {
+    width: 96%;
+    margin: 2%;
+  }
+  #intro-window .window-content {
+    flex-direction: column;
+  }
+  #intro-window .window-content .data {
+    margin: 0 20px 20px 20px;
+  }
+  #intro-window .window-content .data h2 {
+    text-align: center;
+  }
+  #intro-window .window-content .data h1 {
+    text-align: center;
+  }
+  #intro-window .window-content .data div {
+    justify-content: center;
+  }
+}
 #about-window {
   display: none;
   width: 700px;

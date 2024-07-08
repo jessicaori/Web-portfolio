@@ -4,9 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const buzzBlock = document.getElementById("intro-window");
     const buttons = document.querySelectorAll('[id^="showButton"]');
 
+    var mobileMaxWidth = 768;
+
     // Centra la primera ventana (intro) al iniciar
-    centerElement(draggables[0]);
-    buzz("intro-window");
+    if(window.innerWidth > mobileMaxWidth){
+        centerElement(draggables[0]);
+        buzz("intro-window");
+    }
+    
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
