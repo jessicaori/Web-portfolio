@@ -21,6 +21,9 @@
         color: #ffff;
         font-size: 18px;
         text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 5px;
+        .correo{
+            display: none;
+        }
         .container_date{
             display: flex;
             flex-direction: column;
@@ -39,11 +42,17 @@
         width: 94vw;
         margin: 0;
         i{
-            font-size: 15px;
+            display: none;
         }
         div{
             gap: 10px;
             font-size: 15px;
+            .correo{
+                display: block;
+            }
+            .idioma{
+                display: none;
+            }
             .container_date{
                 display: none;
             }

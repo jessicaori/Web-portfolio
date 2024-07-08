@@ -302,6 +302,9 @@ span {
   font-size: 18px;
   text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 5px;
 }
+.taskbar div .correo {
+  display: none;
+}
 .taskbar div .container_date {
   display: flex;
   flex-direction: column;
@@ -318,11 +321,17 @@ span {
     margin: 0;
   }
   .taskbar i {
-    font-size: 15px;
+    display: none;
   }
   .taskbar div {
     gap: 10px;
     font-size: 15px;
+  }
+  .taskbar div .correo {
+    display: block;
+  }
+  .taskbar div .idioma {
+    display: none;
   }
   .taskbar div .container_date {
     display: none;
