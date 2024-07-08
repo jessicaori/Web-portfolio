@@ -271,15 +271,13 @@ span {
     font-size: 15px;
   }
 }
-footer {
+.taskbar {
   position: fixed;
   z-index: 1000;
   bottom: 0;
   left: 0;
   width: 100vw;
   background: linear-gradient(0deg, rgba(123, 181, 238, 0.7) 42%, rgba(123, 181, 238, 0.7) 89%, rgba(190, 219, 248, 0.7) 97%);
-}
-footer .taskbar {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -289,10 +287,10 @@ footer .taskbar {
   border: 1px solid white;
   box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 10px;
 }
-footer .taskbar .windows {
+.taskbar .windows {
   height: 55px;
 }
-footer .taskbar div {
+.taskbar div {
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -304,7 +302,7 @@ footer .taskbar div {
   font-size: 18px;
   text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 5px;
 }
-footer .taskbar div .container_date {
+.taskbar div .container_date {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -312,6 +310,13 @@ footer .taskbar div .container_date {
   width: 110px;
 }
 
+@media screen and (max-width: 768px) {
+  .taskbar {
+    margin-top: 5px;
+    position: relative;
+    padding: 0px 10px;
+  }
+}
 /* DESKTOP */
 #desktop {
   height: 100vh;
