@@ -771,10 +771,16 @@ footer .taskbar div .container_date {
     position: relative;
     width: 96%;
     margin: 2%;
+    height: auto;
     max-height: 1000vh;
+  }
+  #experience-window .window-content {
+    height: auto;
   }
   #experience-window .window-content .content {
     width: 100%;
+    height: auto;
+    max-height: 1000vh;
   }
   #experience-window .window-content .content .two-columns {
     flex-direction: column;
@@ -870,6 +876,7 @@ footer .taskbar div .container_date {
     gap: 15px;
     row-gap: 5px;
     height: auto;
+    max-height: 1000vh;
     width: 90vw;
   }
   #tecnologies-window .window-content .content .tecnology {
