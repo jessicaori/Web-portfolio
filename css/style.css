@@ -794,6 +794,10 @@ footer .taskbar div .container_date {
   #experience-window .window-content .content .two-columns .photo {
     justify-content: center;
   }
+  #experience-window .window-content .content .two-columns .photo .photo-container {
+    height: 80px;
+    width: 80px;
+  }
   #experience-window .window-content .content .two-columns .column-data {
     width: 100%;
     text-align: center;
@@ -1187,6 +1191,51 @@ footer .taskbar div .container_date {
   transform: scale(1.02);
 }
 
+@media screen and (max-width: 768px) {
+  #volunteering-window {
+    display: block;
+    position: relative;
+    width: 96%;
+    margin: 2%;
+    height: auto;
+    max-height: 1000vh;
+  }
+  #volunteering-window .window-content {
+    height: auto;
+  }
+  #volunteering-window .window-content .content {
+    width: 100%;
+    height: auto;
+    max-height: 1000vh;
+  }
+  #volunteering-window .window-content .content .two-columns {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    gap: 10px;
+    width: 90%;
+  }
+  #volunteering-window .window-content .content .two-columns .photo {
+    justify-content: center;
+  }
+  #volunteering-window .window-content .content .two-columns .photo .photo-container {
+    height: 80px;
+    width: 80px;
+  }
+  #volunteering-window .window-content .content .two-columns .column-data {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  #volunteering-window .window-content .content .two-columns .column-data ul {
+    text-align: left;
+    padding-left: 20px;
+  }
+}
 #music-player-window {
   display: none;
   bottom: 60px;

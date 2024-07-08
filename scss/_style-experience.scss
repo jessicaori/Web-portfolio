@@ -119,6 +119,10 @@
                     width: 90%;
                     .photo{
                         justify-content: center;
+                        .photo-container{
+                            height: 80px;
+                            width: 80px;
+                        }
                     }
                     .column-data{
                         width: 100%;
