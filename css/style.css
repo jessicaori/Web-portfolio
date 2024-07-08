@@ -941,6 +941,36 @@ footer .taskbar div .container_date {
   filter: drop-shadow(0px 0px 2px rgba(26, 25, 25, 0.5));
 }
 
+@media screen and (max-width: 768px) {
+  #cv-window {
+    display: block;
+    position: relative;
+    width: 96%;
+    margin: 2%;
+    max-height: 1000vh;
+  }
+  #cv-window .window-content {
+    flex-direction: column-reverse;
+    padding: 10px;
+    height: auto;
+    gap: 10px;
+  }
+  #cv-window .window-content .content {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  #cv-window .window-content .content .two-columns {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+  }
+  #cv-window .window-content .content #dont-download-cv {
+    display: none;
+  }
+}
 #projects-window {
   display: none;
   height: fit-content;
