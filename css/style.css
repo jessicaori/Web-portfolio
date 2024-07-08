@@ -1045,6 +1045,39 @@ footer .taskbar div .container_date {
   transform: scale(1.1);
 }
 
+@media screen and (max-width: 768px) {
+  #projects-window {
+    display: block;
+    position: relative;
+    width: 96%;
+    height: auto;
+    margin: 2%;
+    max-height: 1000vh;
+  }
+  #projects-window .window-content {
+    height: auto;
+  }
+  #projects-window .window-content .content {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 15px;
+    width: auto;
+    height: auto;
+    max-height: 1000vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+  }
+  #projects-window .window-content .content a {
+    width: 90%;
+  }
+  #projects-window .window-content .content a img {
+    width: 100%;
+  }
+}
 #volunteering-window {
   display: none;
   width: 900px;

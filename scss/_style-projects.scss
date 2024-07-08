@@ -56,3 +56,34 @@
         }
     }
 }
+
+@media screen and (max-width: 768px){
+    #projects-window{
+        display: block;
+        position: relative;
+        width: 96%;
+        height: auto;
+        margin: 2%;
+        max-height: 1000vh;
+        .window-content{
+            height: auto;
+            .content{
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: center;
+                gap: 15px;
+                width: auto;
+                height: auto;
+                max-height: 1000vh;
+                @include flex-column;
+                align-items: center;
+                a{
+                    width: 90%;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
